@@ -83,7 +83,7 @@ function Header() {
             <div style={{ width: "100px",marginTop:'10px' }} className=" d-lg-none d-block imghead">
               <Link to={"/"}>
                 <img
-                  src={require("../assets/images/KP LOGO.png")}
+                  src={require("../assets/images/Leekus logo image.jpg")}
                   alt=""
                   className="img-fluid w-100"
                 />
@@ -121,7 +121,7 @@ function Header() {
             <div style={{ width: "120px" }} className="d-inline-block">
               <Link to={"/"}>
                 <img
-                  src={require("../assets/images/KP LOGO.png")}
+                  src={require("../assets/images/Leekus logo image.jpg")}
                   alt=""
                   className="img-fluid w-100"
                 />
@@ -250,7 +250,7 @@ function Header() {
             <h5 className="offcanvas-title" id="offcanvasWithBothOptionsLabel">
               <Link to={"/"}>
                 <img
-                  src={require("../assets/images/KP LOGO.png")}
+                  src={require("../assets/images/Leekus logo image.jpg")}
                   className="img-fluid"
                   style={{ width: "80px" }}
                   alt=""
