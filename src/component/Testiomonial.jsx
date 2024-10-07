@@ -99,7 +99,6 @@ function Testimonial() {
             })}
           </Slider>
         </div>
-     
     </>
   );
 }

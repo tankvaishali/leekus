@@ -1,6 +1,7 @@
 :root {
   --checkout: #edf2f7;
-  --color--: #2E3192;
+  /* --color--: #2E3192; */
+  --color--: #3E4095;
   --heading-font-family: "Playfair Display", serif;
 }
 body {
