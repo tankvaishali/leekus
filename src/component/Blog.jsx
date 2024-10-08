@@ -41,7 +41,7 @@ function Blog() {
                                             <img
                                                 src={`${process.env.REACT_APP_IMAGE_URL}${x.image_file}`}
                                                 alt=""
-                                                className='img-fluid w-100 h-100 object-fit-covernm '
+                                                className='img-fluid w-100 h-100 object-fit-cover '
                                             />
                                         </div>
                                     </a>
@@ -58,8 +58,8 @@ function Blog() {
 
             {/* Modal */}
             <div className="modal fade overflow-hidden "  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-lg " >
-                    <div className="modal-content h-100" style={{height:"80vh" }}>
+                <div className="modal-dialog modal-lg ">
+                    <div className="modal-content h-100">
                         <div className="modal-header ">
                          
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -79,8 +79,8 @@ function Blog() {
                                     />
                                     </div>
                                 </div>
-                                <div className="col-lg-6 col-12">
-                                    <div className="h-100 text-center">
+                                <div className="col-lg-6 col-12 ">
+                                    <div className="h-100 text-center p-4">
                                     <h1 className="modal-title fs-5 fw-bold" id="exampleModalLabel">
                                 {selectedBlog ? selectedBlog.blog_title : "Modal title"}
                             </h1>

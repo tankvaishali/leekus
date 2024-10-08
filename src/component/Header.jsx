@@ -487,3 +487,307 @@ function Header() {
 }
 
 export default Header;
+
+
+
+
+// import React, { useEffect, useState, useRef } from "react";
+// import "../assets/css/Header.css";
+// import { Link } from "react-router-dom";
+// import { IoMdArrowDropright, IoMdMenu } from "react-icons/io";
+// import { IoBagHandle, IoSearch } from "react-icons/io5";
+// import { useDispatch, useSelector } from "react-redux";
+// import { MdFavoriteBorder } from "react-icons/md";
+// import { FaRegUser } from "react-icons/fa";
+
+// function Header() {
+//   const dispatch = useDispatch();
+
+//   // Redux state
+//   const state = useSelector((state) => state);
+//   const clothingdata = state.allcategory.allcategory.data;
+//   const products = state.wish?.wish?.data;
+//   const addtocart = state.addcart.addcart.data;
+
+//   // Search state
+//   const [searchInput, setSearchInput] = useState("");
+//   const [filteredProducts, setFilteredProducts] = useState([]);
+//   const [showSearchForm, setShowSearchForm] = useState(false);
+//   const searchFormRef = useRef(null);
+
+//   // Handle search input change
+//   const handleSearchInputChange = (e) => {
+//     const value = e.target.value.toLowerCase();
+//     setSearchInput(value);
+
+//     if (value === "") {
+//       setFilteredProducts([]);
+//     } else {
+//       const filtered = clothingdata.filter((item) =>
+//         item.product_name.toLowerCase().includes(value)
+//       );
+//       setFilteredProducts(filtered);
+//     }
+//   };
+
+//   const resetSearchModal = () => {
+//     setSearchInput("");
+//     setFilteredProducts([]);
+//     setShowSearchForm(false);
+//   };
+
+//   useEffect(() => {
+//     const handleClickOutside = (event) => {
+//       if (searchFormRef.current && !searchFormRef.current.contains(event.target)) {
+//         resetSearchModal();
+//       }
+//     };
+
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => {
+//       document.removeEventListener("mousedown", handleClickOutside);
+//     };
+//   }, []);
+
+//   return (
+//     <>
+//       <header
+//         className="w-100 position-sticky top-0 z-3 quaheader_design"
+//         id="headermaincss"
+//         style={{
+//           backgroundColor: "var(--color--)",
+//           transition: "all 0.3s ease-in-out",
+//         }}
+//       >
+//         <nav className="z-2">
+//           <div className="d-flex align-items-center justify-content-between">
+//             <button
+//               className="btn toggle-menu text-black fw-bold fs-1 p-0 border-0 text-white"
+//               type="button"
+//               data-bs-toggle="offcanvas"
+//               data-bs-target="#offcanvasWithBothOptions"
+//               aria-controls="offcanvasWithBothOptions"
+//             >
+//               <IoMdMenu />
+//             </button>
+//             <div
+//               style={{ width: "100px", marginTop: "10px" }}
+//               className="d-lg-none d-block imghead"
+//             >
+//               <Link to={"/"}>
+//                 <img
+//                   src={require("../assets/images/KP LOGO FINAL (1).jpg")}
+//                   alt=""
+//                   className="img-fluid w-100"
+//                 />
+//               </Link>
+//             </div>
+//             <div className="d-lg-none d-block mt-2">
+//               <button
+//                 type="button"
+//                 className="btn border-0 p-0 mb-1 ms-3 text-secondary fw-medium"
+//                 onClick={() => setShowSearchForm(true)}
+//               >
+//                 <IoSearch className="text-white" />
+//               </button>
+//               <Link
+//                 to={"/cartadd"}
+//                 className="text-black fs-4"
+//                 style={{ position: "relative", display: "inline-block" }}
+//               >
+//                 <IoBagHandle className="text-white fs-4" />
+//                 <span
+//                   className="prisefont wish_lengthnum rounded-circle text-white bg-danger d-flex justify-content-center align-content-center align-items-center fw-bold p-1 fs-6"
+//                   style={{
+//                     position: "absolute",
+//                     top: "-4px",
+//                     right: "-9px",
+//                     width: "20px",
+//                     height: "20px",
+//                   }}
+//                 >
+//                   {addtocart?.length > 0 ? addtocart?.length : 0}
+//                 </span>
+//               </Link>
+//               <Link
+//                 to={"/account"}
+//                 className="text-decoration-none text-black mx-2"
+//               >
+//                 <FaRegUser className="text-white fs-4" />
+//               </Link>
+//             </div>
+//           </div>
+//           <div className="d-none d-lg-block">
+//             <ul className="main-menu ms-3 d-flex justify-content-between align-items-center">
+//               <div style={{ width: "120px" }} className="d-inline-block">
+//                 <Link to={"/"}>
+//                   <img
+//                     src={require("../assets/images/KP LOGO FINAL (1).jpg")}
+//                     alt=""
+//                     className="img-fluid w-100"
+//                   />
+//                 </Link>
+//               </div>
+
+//               <div className="align-item-center">
+//                 <li>
+//                   <Link to={"/"} className="hoverheader_menu">
+//                     Home
+//                   </Link>
+//                 </li>
+//                 <li className="dropdown">
+//                   <Link to={"/clothingall"}>Clothing</Link>
+//                   <ul className="dropdown-menu">
+//                     <li>
+//                       <Link to={"/clothingall"}> All</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "top"}>Top</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Pant"}>Pant & Trowzer</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Shirt"}>Shirt</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "t-shirt"}>T-shirt</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Blazer"}>Blazer</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Co-ords-Sets"}>
+//                         Co-ords-Sets
+//                       </Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Skirt"}>Skirt</Link>
+//                     </li>
+//                     <li>
+//                       <Link to={"/clothing/" + "Dress"}>Dress</Link>
+//                     </li>
+//                   </ul>
+//                 </li>
+
+//                 <li className="dropdown hoverheader_menu">
+//                   <Link to={"/collectionrange"}> Collections</Link>
+//                 </li>
+//                 <li>
+//                   <Link to={"/accessories"} className="hoverheader_menu">
+//                     Accessories
+//                   </Link>
+//                 </li>
+//                 <li>
+//                   <Link to={"/blog"} className="hoverheader_menu">
+//                     Blog
+//                   </Link>
+//                 </li>
+//               </div>
+
+//               <div className="">
+//                 <button
+//                   className="btn text-white border border-white px-5"
+//                   style={{ marginTop: "-5px", marginRight: "0px" }}
+//                   type="button"
+//                   onClick={() => setShowSearchForm(true)}
+//                 >
+//                   <IoSearch className="text-white" /> search
+//                 </button>
+//                 {localStorage.getItem("user_id") && (
+//                   <Link
+//                     to={"/wishlist"}
+//                     className="text-decoration-none text-black ms-3 text-white me-2"
+//                     style={{ position: "relative", display: "inline-block" }}
+//                   >
+//                     <MdFavoriteBorder className="text-white fs-2" />
+//                     <span
+//                       className="wish_lengthnum rounded-circle text-white bg-danger d-flex justify-content-center prisefont align-content-center align-items-center fw-bold p-1"
+//                       style={{
+//                         position: "absolute",
+//                         top: "-8px",
+//                         right: "-9px",
+//                         width: "20px",
+//                         height: "20px",
+//                       }}
+//                     >
+//                       {products?.length > 0 ? products?.length : 0}
+//                     </span>
+//                   </Link>
+//                 )}
+//               </div>
+//             </ul>
+//           </div>
+//         </nav>
+
+//         {showSearchForm && (
+//           <div
+//             ref={searchFormRef}
+//             className="search-form-container fixed-top d-flex justify-content-center align-items-center"
+//             style={{ zIndex: 1300 }}
+//           >
+//             <div className="container">
+//               <div className="shadow rounded formsearch m-auto p-3 bg-white">
+//                 <form action="" className="d-flex">
+//                   <input
+//                     type="text"
+//                     className="form-control border border-secondary rounded-start mx-auto fs-6 formshadow"
+//                     placeholder="Search your products..."
+//                     aria-label="Search"
+//                     value={searchInput}
+//                     onChange={handleSearchInputChange}
+//                     style={{ boxShadow: "none", outline: "none" }}
+//                   />
+//                   <button
+//                     type="button"
+//                     className="form-control btn-close rounded-circle ms-2 bg-secondary-subtle p-3"
+//                     aria-label="Close"
+//                     onClick={resetSearchModal}
+//                   ></button>
+//                 </form>
+//               </div>
+//               {searchInput && (
+//                 <div
+//                   className="searchbody mt-2 bg-white rounded p-4 m-0"
+//                   style={{ maxHeight: "300px", overflowY: "auto" }}
+//                 >
+//                   {filteredProducts.length > 0 ? (
+//                     <div className="row">
+//                       {filteredProducts.map((product, index) => (
+//                         <Link
+//                           to={`/productpurchase/${product.product_name}/${product.id}/${product.colour_name[0]?.colour_id}`}
+//                           key={index}
+//                           className="text-decoration-none searchmain col-12 col-sm-6 col-md-4 col-lg-3 mb-4 d-flex align-items-center"
+//                           onClick={resetSearchModal} // Reset search modal on click
+//                         >
+//                           <div className="searchimg rounded-circle border border-2 shadow p-2">
+//                             <img
+//                               src={product.img}
+//                               alt={product.product_name}
+//                               style={{
+//                                 width: "45px",
+//                                 height: "45px",
+//                                 objectFit: "contain",
+//                               }}
+//                             />
+//                           </div>
+//                           <span className="searchtittle text-secondary text-decoration-none ms-3 fw-bolder">
+//                             {product.product_name}
+//                           </span>
+//                         </Link>
+//                       ))}
+//                     </div>
+//                   ) : (
+//                     <li className="list-group-item">No results found.</li>
+//                   )}
+//                 </div>
+//               )}
+//             </div>
+//           </div>
+//         )}
+//       </header>
+//     </>
+//   );
+// }
+
+// export default Header;
