@@ -172,6 +172,7 @@ function Footer() {
                     type="email"
                     placeholder="Enter Your Email Address"
                     className="p-2 w-75 bg-white text-black border-1 border fw-medium"
+                    required
                   />
                 </div>
                 <button className=" bg-transparent text-white border  border-1 p-2 fw-bold my-1 my-lg-3 text-center w-50 ">

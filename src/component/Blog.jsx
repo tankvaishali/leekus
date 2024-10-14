@@ -58,7 +58,7 @@ function Blog() {
 
             {/* Modal */}
             <div className="modal fade overflow-hidden "  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog modal-lg ">
+                <div className="modal-dialog modal-lg modal-dialog-scrollable">
                     <div className="modal-content h-100">
                         <div className="modal-header ">
                          
