@@ -47,6 +47,7 @@ import Wishlist from "./component/Wishlist";
 import Accessories from "./component/Accessories";
 import SubCollection from "./component/SubCollection";
 import Dress from "./component/Dress";
+import Blogdetail from "./component/Blogdetail";
 
 function App() {
   const state = useSelector((state) => state);
@@ -122,6 +123,7 @@ function App() {
             <Route path="/sizechartpage" element={<SizeChart />} />
             <Route path="/collectionrange" element={<CollectionRange />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blogdetail/:id" element={<Blogdetail />} />
             <Route path="/clothing" element={<Top />} >
               <Route path=":id"/>
             </Route>

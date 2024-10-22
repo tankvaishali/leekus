@@ -78,8 +78,6 @@ const CheckOut = () => {
 
   }
 
-  
-
   const paymentMethod=async()=>{
     if(deliveryAdd && selectedOption2){
       let paymentObj={
@@ -91,7 +89,7 @@ const CheckOut = () => {
         shipment_price:expressShiping,
         payment_type:selectedOption2
       }
-      
+    
     const response =await axios.post(`${process.env.REACT_APP_SERVER_URL}api/order-details/`,paymentObj)
     const data =  response;
     

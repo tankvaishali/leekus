@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import Hoc from './Hoc';
 import { blogAction } from '../redux/actions/testiAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function Blog() {
-    const [selectedBlog, setSelectedBlog] = useState(null); // State to hold selected blog data
+    // const [selectedBlog, setSelectedBlog] = useState(null); // State to hold selected blog data
 
     const state = useSelector(state => state);
     const data = state.testimonial.blog.data;
@@ -15,9 +16,9 @@ function Blog() {
     }, [dispatch]);
 
     // Function to handle setting the selected blog for the modal
-    const handleSelectBlog = (blog) => {
-        setSelectedBlog(blog);
-    };
+    // const handleSelectBlog = (blog) => {
+    //     setSelectedBlog(blog);
+    // };
 
     return (
         <>
@@ -25,16 +26,16 @@ function Blog() {
                 <div className='d-flex justify-content-center'>
                     <h3 className='borderbottom'>Blog</h3>
                 </div>
-                <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 m-0 p-0 g-5'>
+                <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 m-0 p-0 g-5 d-flex justify-content-center h-100'>
                     {data?.map((x, i) => (
                         <div className='col' key={i}>
-                            <button
-                                type="button"
-                                className="btn btn-transparent shadow h-100 border-0 p-0"
-                                data-bs-toggle="modal"
-                                data-bs-target="#exampleModal"
-                                onClick={() => handleSelectBlog(x)} // Set selected blog on click
-                            >
+                            {/* <button */}
+                                {/* type="button" */}
+                                {/* className="btn btn-transparent shadow h-100 border-0 p-0" */}
+                                {/* // data-bs-toggle="modal" */}
+                                {/* // data-bs-target="#exampleModal" */}
+                                {/* // onClick={() => handleSelectBlog(x)}  */}
+                            {/* > */}
                                 <div className='card border-0 h-100'>
                                     <a href={x.url} className='nav-link' target='_blank' rel="noopener noreferrer">
                                         <div style={{ height: "200px" }}>
@@ -48,16 +49,19 @@ function Blog() {
                                     <div className='p-3'>
                                         <div className='fs-4 fw-medium py-2'>{x.blog_title}</div>
                                         <div className='py-1 text-break'>{x.blog_description}</div>
+                               
+                                        <Link to={`/blogdetail/${encodeURIComponent(x.blog_title)}`} className='py-2'>Read More</Link>
+
                                     </div>
                                 </div>
-                            </button>
+                            {/* </button> */}
                         </div>
                     ))}
                 </div>
             </div>
 
             {/* Modal */}
-            <div className="modal fade overflow-hidden "  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            {/* <div className="modal fade overflow-hidden "  id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog modal-lg modal-dialog-scrollable">
                     <div className="modal-content h-100">
                         <div className="modal-header ">
@@ -96,14 +100,10 @@ function Blog() {
                                 <p>Loading...</p>
                             )}
                         </div>
-                        {/* <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">
-                                Close
-                            </button>
-                        </div> */}
+           
                     </div>
                 </div>
-            </div>
+            </div> */}
         </>
     );
 }

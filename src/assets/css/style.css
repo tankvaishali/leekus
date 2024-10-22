@@ -323,7 +323,9 @@ html {
 }
 
 /* FAQ accordian */
-
+.accordion-button{
+  z-index: 0 !important;
+}
 .accordion-flush > .accordion-item > .accordion-header .accordion-button {
   background-color: white;
 }
